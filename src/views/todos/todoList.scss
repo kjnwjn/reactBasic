@@ -1,0 +1,30 @@
+.container{
+    .to-do-Add{
+
+    }
+    .to-do-list{
+        list-style-type: none;
+        padding: 0;
+        .to-do-item{
+            &:first-child{
+                border-top: 1px solid grey;
+    
+            }
+            border-bottom: 1px solid grey;
+            padding: 4px 4px;
+            width: 400px;
+            margin: auto;
+            height: 40px;
+            .list-btn{
+                display: inline;
+                margin: 2px 6px;
+                .btn__edit{
+    
+                }
+                .btn__delete{
+    
+                }
+            }
+        }
+    }
+}

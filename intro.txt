@@ -1,0 +1,39 @@
+components : class components + function components
+class components : 
+    + declare class components
+        ex: class <name> extends React.ReactComponent {
+            render(){
+                code block 
+            }
+        }
+    
+fuction components : 
+    + declare fuction components (function and arrow function)
+        ex:
+        function: fuction <name> () {
+                code block 
+        }
+
+        arrow function
+
+        const a = () => {
+
+        }
+
+
+Component của React có gì đặc biệt : sử dụng cú pháp JSX( viết html trong file JS)
+
+State : trong react State cập nhật dữ liệu trên màn hình mà không cần phải load lại trang
+State trong react là 1 object
+
+nesting component : component có mối quan hệ cha con , component cha có thể truyền data đến component 
+con nhưng component con ko thể truyền ngược lại
+
+
+Stateless/Statefull (fuction component / class component)
+    fuction component : giúp code ngắn hơn hạn chế sử dụng từ khoá this 
+                        sử dụng nhiều khi hook ra đời 
+                        
+
+life cycler : mounting |                    updating |                              unmounting
+            componentDidMount            componentDidUpdate(prevState,state)

@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "react-toastify": "^9.0.8",
     "sass": "^1.54.4"
   }
 }
