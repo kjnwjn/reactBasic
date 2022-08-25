@@ -37,3 +37,10 @@ Stateless/Statefull (fuction component / class component)
 
 life cycler : mounting |                    updating |                              unmounting
             componentDidMount            componentDidUpdate(prevState,state)
+
+
+Axios : sử dụng để gọi API Trong react
+
+
+mapStateToProps : kết nối redux với 1 component của react 
+mapDispatchToProps :  

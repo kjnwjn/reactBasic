@@ -36,17 +36,17 @@ class ToDoList extends React.Component {
         toast.success("delete todo item successfully");
     };
 
-    handleEditTodo = (e,item) => {
-        let {editTodo ,listTodo } = this.state
+    handleEditTodo = (e, item) => {
+        let { editTodo, listTodo } = this.state
         let isEmptyEditTodo = Object.keys(this.state.editTodo).length === 0;
 
-        if(!isEmptyEditTodo && editTodo.id === item.id) {
+        if (!isEmptyEditTodo && editTodo.id === item.id) {
             let listTodoCopy = [...listTodo]
             let objIndex = listTodoCopy.findIndex(obj => obj.id === item.id);
             listTodoCopy[objIndex].title = editTodo.title
             this.setState({
                 listTodo: listTodoCopy,
-                editTodo : {}
+                editTodo: {}
             });
             toast.success('Save successfully')
             return;
@@ -55,7 +55,7 @@ class ToDoList extends React.Component {
         this.setState({
             editTodo: item,
         });
-        
+
     };
 
     handleEditInput = (e) => {
@@ -73,6 +73,9 @@ class ToDoList extends React.Component {
 
         return (
             <>
+                <p>
+                    TodoApp
+                </p>
                 <div className="container">
                     <AddToDo handleAddToDo={this.handleAddToDo} />
                     <ul className="to-do-list">
@@ -103,13 +106,13 @@ class ToDoList extends React.Component {
                                             </>
                                         )}
                                         <div className="list-btn">
-                                                <button
-                                                    type="button"
-                                                    className="btn__edit"
-                                                    onClick={(e) => this.handleEditTodo(e,item)}
-                                                >
-                                                {isEmptyEditTodo === false && item.id === editTodo.id ? 'Save' : 'Edit'}    
-                                                </button>
+                                            <button
+                                                type="button"
+                                                className="btn__edit"
+                                                onClick={(e) => this.handleEditTodo(e, item)}
+                                            >
+                                                {isEmptyEditTodo === false && item.id === editTodo.id ? 'Save' : 'Edit'}
+                                            </button>
                                             <button
                                                 type="button"
                                                 className="btn__delete"

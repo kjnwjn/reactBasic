@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
 import './styles/global.scss';
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
-// );
 
+// ép react khởi động cùng redux nên bọc bên ngoài app
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from './store/reducer/rootRecuder'
+
+const reduxStore = createStore(rootReducer)
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={reduxStore}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )
