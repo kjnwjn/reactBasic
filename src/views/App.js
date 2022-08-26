@@ -5,6 +5,7 @@ import ToDoList from './todos/ToDoList';
 import Home from './example/Home';
 import User from './User/User'
 import UserDetail from './User/UserDetail'
+import ListMonster from './monster/ListMonster';
 import {
   BrowserRouter,
   Switch,
@@ -20,7 +21,7 @@ function App() {
     <BrowserRouter>
       
      
-    <div className="App">
+    <div className="App body">
       <header className="App-header">
       <Nav/>
         <img src={logo} className="App-logo" alt="logo" />
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path="/todos" >
           <ToDoList />
+          </Route>
+          <Route path="/monster" >
+          <ListMonster />
           </Route>
           <Route path="/user" exact="true">
           <User />

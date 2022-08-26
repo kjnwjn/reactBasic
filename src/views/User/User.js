@@ -4,10 +4,12 @@ import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import {withRouter} from 'react-router-dom'
+import SearchBox from '../../components/SearchBox/SearchBox.component';
 
 class User extends React.Component {
     state = {
-        listuser : []
+        listuser : [],
+        searchValue : '', 
     }
     async componentDidMount(){
         let res = await axios.get('https://reqres.in/api/users?page=1')
@@ -18,11 +20,20 @@ class User extends React.Component {
         this.props.history.push(`/user/${user.id}`)
     }
 
+    handleSearchBox = (e) => {
+        this.setState({
+            searchValue : e.target.value
+        })
+       
+    }
     render(){
+        let {searchValue} = this.state
         let {listuser} = this.state
+        let a = listuser.filter((item)=> item.last_name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()))
         return (
             <>
                 <div>User component</div>
+                <SearchBox placeholder='Search' className='searchBox' handleSearchBox={this.handleSearchBox}/>
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
@@ -35,10 +46,10 @@ class User extends React.Component {
                     </thead>
                     <tbody>
                     {
-                        (listuser && listuser.length > 0) && 
-                        listuser.map((userItem,index) =>{
+                        (a && a.length > 0) ?
+                        a.map((userItem,index) =>{
                             return(
-                                <tr>
+                                <tr key={userItem.id}>
                                     <td>{index + 1}</td>
                                     <td>{userItem.first_name}</td>
                                     <td>{userItem.last_name}</td>
@@ -48,6 +59,8 @@ class User extends React.Component {
                        
                             )
                         })
+                        :
+                            <tr><td colSpan={5}>Don't have any people match</td></tr>
                     }
                         
                     </tbody>

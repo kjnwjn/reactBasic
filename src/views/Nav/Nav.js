@@ -35,6 +35,13 @@ class Nav extends React.Component {
                     >
                         User
                     </NavLink>
+                    <NavLink
+                        to="/monster"
+                        activeClassName="active"
+
+                    >
+                        Monster
+                    </NavLink>
                 
                 </div>
         )
